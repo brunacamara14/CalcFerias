@@ -32,7 +32,7 @@ hoje = date.today()
 # Input do usuário (Data das férias)
 data_ferias = st.date_input(
     "Quando começam as férias?",
-    value=date(2026, 7, 13),  # O Python exige ordem: Ano, Mês, Dia
+    value=date(yyyy, mm, dd),  # O Python exige ordem: Ano, Mês, Dia
     min_value=hoje,
     format="DD/MM/YYYY"       # Isso força o site a MOSTRAR como Dia/Mês/Ano
 )
@@ -71,4 +71,5 @@ elif data_ferias == hoje:
     st.balloons()
     st.success("🎉 É hoje! Boas férias!")
 else:
+
     st.warning("Essa data já passou!")

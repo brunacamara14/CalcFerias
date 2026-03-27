@@ -19,7 +19,7 @@ st.markdown("""
         margin-top: 20px;
     }
     </style>
-    """, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 # Título
 st.title("🏖️ Calculadora de Férias")
@@ -28,10 +28,13 @@ st.write("Insira a data do início das suas férias para ver quanto tempo falta.
 # Data de hoje
 hoje = date.today()
 
+# Data padrão válida
+data_padrao = max(date(2026, 2, 18), hoje)
+
 # Input do usuário
 data_ferias = st.date_input(
     "Quando começam as férias?",
-    value=date(2026, 2, 18),
+    value=data_padrao,
     min_value=hoje
 )
 
@@ -83,6 +86,3 @@ if data_ferias > hoje:
 elif data_ferias == hoje:
     st.balloons()
     st.success("🎉 É hoje! Boas férias!")
-
-else:
-    st.warning("Essa data já passou!")
